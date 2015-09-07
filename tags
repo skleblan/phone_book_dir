@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADD	smpl_phone_book.c	/^    ADD,$/;"	e	enum:__anon1	file:
+COUNT	smpl_phone_book.c	/^    COUNT,$/;"	e	enum:__anon1	file:
+LIST_ALL	smpl_phone_book.c	/^    LIST_ALL,$/;"	e	enum:__anon1	file:
+NUM_CMND_OPTIONS	smpl_phone_book.c	/^    NUM_CMND_OPTIONS$/;"	e	enum:__anon1	file:
+QUIT	smpl_phone_book.c	/^    QUIT,$/;"	e	enum:__anon1	file:
+REMOVE	smpl_phone_book.c	/^    REMOVE,$/;"	e	enum:__anon1	file:
+REMOVE_ALL	smpl_phone_book.c	/^    REMOVE_ALL,$/;"	e	enum:__anon1	file:
+SAVE	smpl_phone_book.c	/^    SAVE,$/;"	e	enum:__anon1	file:
+VIEW_ENTRY	smpl_phone_book.c	/^    VIEW_ENTRY,$/;"	e	enum:__anon1	file:
+cmnd_string	smpl_phone_book.c	/^char * cmnd_string[] =$/;"	v
+main	smpl_phone_book.c	/^void main()$/;"	f
