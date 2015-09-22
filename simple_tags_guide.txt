@@ -1,0 +1,5 @@
+run ctags -R
+in vim, run :load tags
+use Ctrl-] to follow tags to definitions
+use Ctrl-t to go back up the stack
+use :tag <member name> to go directly to definition
