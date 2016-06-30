@@ -1,0 +1,1 @@
+try pressing the "F1" key when inside vim. see what happens.

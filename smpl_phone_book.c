@@ -9,6 +9,8 @@
 #include <string.h> //for memset()
 #include <stdlib.h> //for exit()
 
+#include "ct_assert.h"
+
 #define PHONE_BOOK_SIZE    100
 
 enum
@@ -49,6 +51,9 @@ char * cmnd_string[] =
     "Remove all Entries",
     "Quit"
 };
+
+//compile-time assert
+//ct_assert( sizeof(cmnd_string)/sizeof(char) == NUM_CMND_OPTIONS );
 
 void init_all_vars( void );
 void print_menu( void );
@@ -109,6 +114,20 @@ void init_all_vars(void)
     }
 }
 
+int find_next_open_array_idx(void)
+{
+    int i;
+
+    for(i = 0; i < PHONE_BOOK_SIZE; i++)
+    {
+        if(my_phone_book[i].id != -1)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void print_menu( void )
 {
     unsigned int i;
@@ -144,26 +163,37 @@ void handle_cmnd_list_all(void)
 
 void handle_cmnd_add(void)
 {
-    printf("User selected: Add Entry\n");
+    char temp[40];
+    int new_id;
+    int temp_str_len;
 
-    if( num_entries >= PHONE_BOOK_SIZE )
-    {
-        printf("Your phone book is full\n");
-        return;
-    }
-
-    printf("Enter Name: ");
-    scanf("%s", );
-    printf("Enter Number: ");
-    scanf("%s", );
-    num_entries++;
-
-    next_id_val++;
+    new_id = -1;
+    temp_str_len = 0;
 
     if( num_entries < PHONE_BOOK_SIZE )
     {
-        find_next_open_array_idx();
+        new_id = find_next_open_array_idx();
     }
+
+    if( new_id == -1 )
+    {
+        printf("Phone Book is full. Can't add a new entry.\n");
+        return;
+    }
+
+    printf("User selected: Add Entry\n");
+
+    printf("Enter Name: ");
+    scanf("%s", temp);
+    temp_str_len = strlen(temp);
+    //TODO: should create min and max macros and apply below.
+    strncpy(temp, my_phone_book[new_id].name, temp_str_len);
+
+    printf("Enter Number: ");
+    scanf("%s", temp);
+    num_entries++;
+
+    next_id_val++;
 
     printf("Entry has been added. ID: %d", );
 }

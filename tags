@@ -5,22 +5,29 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ADD	smpl_phone_book.c	/^    ADD,$/;"	e	enum:__anon1	file:
+CONCAT	ct_assert.h	4;"	d
 COUNT	smpl_phone_book.c	/^    COUNT,$/;"	e	enum:__anon1	file:
 LIST_ALL	smpl_phone_book.c	/^    LIST_ALL,$/;"	e	enum:__anon1	file:
 NUM_CMND_OPTIONS	smpl_phone_book.c	/^    NUM_CMND_OPTIONS$/;"	e	enum:__anon1	file:
-PHONE_BOOK_SIZE	smpl_phone_book.c	12;"	d	file:
+PHONE_BOOK_SIZE	smpl_phone_book.c	14;"	d	file:
 QUIT	smpl_phone_book.c	/^    QUIT,$/;"	e	enum:__anon1	file:
 REMOVE	smpl_phone_book.c	/^    REMOVE,$/;"	e	enum:__anon1	file:
 REMOVE_ALL	smpl_phone_book.c	/^    REMOVE_ALL,$/;"	e	enum:__anon1	file:
 SAVE	smpl_phone_book.c	/^    SAVE,$/;"	e	enum:__anon1	file:
 VIEW_ENTRY	smpl_phone_book.c	/^    VIEW_ENTRY,$/;"	e	enum:__anon1	file:
+__CT_ASSERT_H__	ct_assert.h	2;"	d
 cmnd_string	smpl_phone_book.c	/^char * cmnd_string[] =$/;"	v
+ct_assert	ct_assert.h	6;"	d
+find_next_open_array_idx	smpl_phone_book.c	/^int find_next_open_array_idx(void)$/;"	f
+handle_cmnd_add	smpl_phone_book.c	/^void handle_cmnd_add(void)$/;"	f
 handle_cmnd_list_all	smpl_phone_book.c	/^void handle_cmnd_list_all(void)$/;"	f
 id	smpl_phone_book.c	/^    int id; \/\/or should i do some sort of hash?$/;"	m	struct:phn_dir_entry	file:
 init_all_vars	smpl_phone_book.c	/^void init_all_vars(void)$/;"	f
 main	smpl_phone_book.c	/^void main()$/;"	f
 my_phone_book	smpl_phone_book.c	/^phn_dir_entry_t   my_phone_book[PHONE_BOOK_SIZE];$/;"	v
 name	smpl_phone_book.c	/^    char name[32];$/;"	m	struct:phn_dir_entry	file:
+next_id_val	smpl_phone_book.c	/^int               next_id_val;$/;"	v
+next_open_idx	smpl_phone_book.c	/^unsigned int      next_open_idx;$/;"	v
 num_entries	smpl_phone_book.c	/^unsigned int      num_entries;$/;"	v
 phn_dir_entry	smpl_phone_book.c	/^struct phn_dir_entry$/;"	s	file:
 phn_dir_entry_t	smpl_phone_book.c	/^typedef struct phn_dir_entry phn_dir_entry_t;$/;"	t	typeref:struct:phn_dir_entry	file:
