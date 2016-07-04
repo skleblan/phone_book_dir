@@ -5,11 +5,12 @@
  * as a simple phone book
  *
  */
-#include <stdio.h>
-#include <string.h> //for memset()
+#include <stdio.h>  //for printf(), scanf()
+#include <string.h> //for memset(), strlen(), strncpy()
 #include <stdlib.h> //for exit()
 
 #include "ct_assert.h"
+#include "util.h"
 
 #define PHONE_BOOK_SIZE    100
 
@@ -96,6 +97,10 @@ void main()
             case LIST_ALL:
                 handle_cmnd_list_all();
                 break;
+
+            case ADD:
+                handle_cmnd_add();
+                break;
         }
     }
 }
@@ -120,7 +125,7 @@ int find_next_open_array_idx(void)
 
     for(i = 0; i < PHONE_BOOK_SIZE; i++)
     {
-        if(my_phone_book[i].id != -1)
+        if(my_phone_book[i].id == -1)
         {
             return i;
         }
@@ -169,6 +174,7 @@ void handle_cmnd_add(void)
 
     new_id = -1;
     temp_str_len = 0;
+    memset(temp, 0, 40);
 
     if( num_entries < PHONE_BOOK_SIZE )
     {
@@ -186,14 +192,21 @@ void handle_cmnd_add(void)
     printf("Enter Name: ");
     scanf("%s", temp);
     temp_str_len = strlen(temp);
-    //TODO: should create min and max macros and apply below.
-    strncpy(temp, my_phone_book[new_id].name, temp_str_len);
+    strncpy(temp, my_phone_book[new_id].name, MIN(temp_str_len, 32));
+    //max size of name is 32, max size of temp is 40
+    memset(temp, 0, 40);
 
     printf("Enter Number: ");
     scanf("%s", temp);
+    temp_str_len = strlen(temp);
+    strncpy(temp, my_phone_book[new_id].phone_num, MIN(temp_str_len, 10));
+    //max size of phone_num is 10, max size of temp is 40
+
+    my_phone_book[new_id].id = new_id;
+
     num_entries++;
 
     next_id_val++;
 
-    printf("Entry has been added. ID: %d", );
+    printf("Entry has been added. ID: %d", new_id);
 }
