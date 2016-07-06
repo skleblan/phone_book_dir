@@ -38,8 +38,8 @@ typedef struct phn_dir_entry phn_dir_entry_t;
 
 phn_dir_entry_t   my_phone_book[PHONE_BOOK_SIZE];
 unsigned int      num_entries;
-int               next_id_val;
-unsigned int      next_open_idx;
+//int               next_id_val;
+//unsigned int      next_open_idx;
 
 char * cmnd_string[] =
 {
@@ -47,7 +47,7 @@ char * cmnd_string[] =
     "View an Entry",
     "Add a new Entry",
     "Remove an Entry",
-    "Count the number of Entries",
+    "View Number of Entries",
     "Save to a file",
     "Remove all Entries",
     "Quit"
@@ -60,6 +60,8 @@ void init_all_vars( void );
 void print_menu( void );
 void handle_cmnd_list_all(void);
 void handle_cmnd_add(void);
+void handle_cmnd_rem_all(void);
+void handle_cmnd_count(void);
 
 void main()
 {
@@ -101,6 +103,14 @@ void main()
             case ADD:
                 handle_cmnd_add();
                 break;
+
+            case REMOVE_ALL:
+                handle_cmnd_rem_all();
+                break;
+
+            case COUNT:
+                handle_cmnd_count();
+                break;
         }
     }
 }
@@ -110,8 +120,8 @@ void init_all_vars(void)
     unsigned int i;
 
     num_entries = 0;
-    next_id_val = 0;
-    next_open_idx = 0;
+    //next_id_val = 0;
+    //next_open_idx = 0;
     memset(my_phone_book, 0, sizeof(phn_dir_entry_t)*PHONE_BOOK_SIZE);
     for(i = 0; i < PHONE_BOOK_SIZE; i++)
     {
@@ -141,6 +151,29 @@ void print_menu( void )
     for(i = 0; i < NUM_CMND_OPTIONS; i++)
     {
         printf("%d) %s\n", i, cmnd_string[i]);
+    }
+}
+
+void handle_cmnd_count(void)
+{
+    printf("Phone book contains %d entries\n", num_entries);
+}
+
+void handle_cmnd_rem_all(void)
+{
+    char temp[20];
+
+    printf("Are you sure you want to remove all entries?\n");
+    scanf("%s", temp);
+
+    if(temp[0] == 'y' || temp[0] == 'Y')
+    {
+        init_all_vars();
+        printf("Phone book has been cleared\n");
+    }
+    else
+    {
+        printf("Removal cancalled\n");
     }
 }
 
@@ -206,7 +239,7 @@ void handle_cmnd_add(void)
 
     num_entries++;
 
-    next_id_val++;
+    //next_id_val++;
 
     printf("Entry has been added. ID: %d", new_id);
 }
