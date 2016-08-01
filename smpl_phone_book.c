@@ -225,14 +225,14 @@ void handle_cmnd_add(void)
     printf("Enter Name: ");
     scanf("%s", temp);
     temp_str_len = strlen(temp);
-    strncpy(temp, my_phone_book[new_id].name, MIN(temp_str_len, 32));
+    strncpy(my_phone_book[new_id].name, temp, MIN(temp_str_len, 32));
     //max size of name is 32, max size of temp is 40
     memset(temp, 0, 40);
 
     printf("Enter Number: ");
     scanf("%s", temp);
     temp_str_len = strlen(temp);
-    strncpy(temp, my_phone_book[new_id].phone_num, MIN(temp_str_len, 10));
+    strncpy(my_phone_book[new_id].phone_num, temp, MIN(temp_str_len, 10));
     //max size of phone_num is 10, max size of temp is 40
 
     my_phone_book[new_id].id = new_id;
