@@ -23,6 +23,7 @@ cmnd_string	smpl_phone_book.c	/^char * cmnd_string[] =$/;"	v
 ct_assert	ct_assert.h	6;"	d
 find_next_open_array_idx	smpl_phone_book.c	/^int find_next_open_array_idx(void)$/;"	f
 handle_cmnd_add	smpl_phone_book.c	/^void handle_cmnd_add(void)$/;"	f
+handle_cmnd_count	smpl_phone_book.c	/^void handle_cmnd_count(void)$/;"	f
 handle_cmnd_list_all	smpl_phone_book.c	/^void handle_cmnd_list_all(void)$/;"	f
 handle_cmnd_rem_all	smpl_phone_book.c	/^void handle_cmnd_rem_all(void)$/;"	f
 id	smpl_phone_book.c	/^    int id; \/\/or should i do some sort of hash?$/;"	m	struct:phn_dir_entry	file:
@@ -30,8 +31,6 @@ init_all_vars	smpl_phone_book.c	/^void init_all_vars(void)$/;"	f
 main	smpl_phone_book.c	/^void main()$/;"	f
 my_phone_book	smpl_phone_book.c	/^phn_dir_entry_t   my_phone_book[PHONE_BOOK_SIZE];$/;"	v
 name	smpl_phone_book.c	/^    char name[32];$/;"	m	struct:phn_dir_entry	file:
-next_id_val	smpl_phone_book.c	/^int               next_id_val;$/;"	v
-next_open_idx	smpl_phone_book.c	/^unsigned int      next_open_idx;$/;"	v
 num_entries	smpl_phone_book.c	/^unsigned int      num_entries;$/;"	v
 phn_dir_entry	smpl_phone_book.c	/^struct phn_dir_entry$/;"	s	file:
 phn_dir_entry_t	smpl_phone_book.c	/^typedef struct phn_dir_entry phn_dir_entry_t;$/;"	t	typeref:struct:phn_dir_entry	file:

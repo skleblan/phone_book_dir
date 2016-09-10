@@ -57,11 +57,12 @@ char * cmnd_string[] =
 //ct_assert( sizeof(cmnd_string)/sizeof(char) == NUM_CMND_OPTIONS );
 
 void init_all_vars( void );
-void print_menu( void );
-void handle_cmnd_list_all(void);
-void handle_cmnd_add(void);
-void handle_cmnd_rem_all(void);
-void handle_cmnd_count(void);
+void print_menu( unsigned char b_full_menu );
+void handle_cmnd_list_all( void );
+void handle_cmnd_add( void );
+void handle_cmnd_rem_all( void );
+void handle_cmnd_count( void );
+void handle_cmnd_view_entry( void );
 
 void main()
 {
@@ -77,9 +78,10 @@ void main()
     //it appears that after i make modifications to the file by moving some
     //tagged stuff down a line number or a million, the tag will follow it
 
+    print_menu( TRUE ); //print full menu
+
     while( option != QUIT )
     {
-        print_menu();
         scanf("%d", &option);
 
         if(option == QUIT)
@@ -111,7 +113,13 @@ void main()
             case COUNT:
                 handle_cmnd_count();
                 break;
+
+            case VIEW_ENTRY:
+                handle_cmnd_view_entry();
+                break;
+
         }
+        print_menu( FALSE );
     }
 }
 
@@ -143,15 +151,19 @@ int find_next_open_array_idx(void)
     return -1;
 }
 
-void print_menu( void )
+void print_menu( unsigned char b_print_full )
 {
     unsigned int i;
 
-    printf("\nSelect an option:\n");
-    for(i = 0; i < NUM_CMND_OPTIONS; i++)
+    if( b_print_full != 0)
     {
-        printf("%d) %s\n", i, cmnd_string[i]);
+        for(i = 0; i < NUM_CMND_OPTIONS; i++)
+        {
+            printf("%d) %s\n", i, cmnd_string[i]);
+        }
     }
+
+    printf("\nSelect an option:\n");
 }
 
 void handle_cmnd_count(void)
@@ -197,6 +209,14 @@ void handle_cmnd_list_all(void)
                 my_phone_book[i].phone_num);
         }
     }
+}
+
+void handle_cmnd_view_entry(void)
+{
+    unsigned int id;
+
+    printf("Currently do not support searching by name...\n");
+    //printf("");
 }
 
 void handle_cmnd_add(void)
