@@ -87,7 +87,21 @@ void main()
 
     while( option != QUIT )
     {
-        scanf("%d", &option);
+        char input_string[100];
+        int input_len;
+        //scanf("%d", &option);
+        scanf("%s", input_string);
+
+        input_len = strlen(input_string);
+        if(input_len == 0)
+        {
+            print_menu(TRUE);
+            continue;
+        }
+        else
+        {
+            sscanf(input_string, "%d", &option);
+        }
 
         if(option == QUIT)
         {
@@ -168,7 +182,7 @@ void print_menu( unsigned char b_print_full )
         }
     }
 
-    printf("\nSelect an option:\n");
+    printf("\nSelect an option: ");
 }
 
 void handle_cmnd_count(void)
@@ -253,7 +267,6 @@ void print_entry(int id)
     printf("ID: %d\n", my_phone_book[id].id);
     printf("Name: %s\n", my_phone_book[id].name);
     printf("Phone Number: %s\n", my_phone_book[id].phone_num);
-    printf("\n");
 }
 
 int find_id_from_name(char* name)
