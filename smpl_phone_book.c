@@ -22,6 +22,7 @@ enum
     REMOVE,
     COUNT,
     SAVE,
+    LOAD,
     REMOVE_ALL,
     QUIT,
 
@@ -49,6 +50,7 @@ char * cmnd_string[] =
     "Remove an Entry",
     "View Number of Entries",
     "Save to a file",
+    "Load from a file",
     "Remove all Entries",
     "Quit"
 };
@@ -63,6 +65,9 @@ void handle_cmnd_add( void );
 void handle_cmnd_rem_all( void );
 void handle_cmnd_count( void );
 void handle_cmnd_view_entry( void );
+int find_id_from_name(char* name);
+int find_next_open_array_idx(void);
+void print_entry(int id);
 
 void main()
 {
@@ -213,10 +218,70 @@ void handle_cmnd_list_all(void)
 
 void handle_cmnd_view_entry(void)
 {
-    unsigned int id;
+    char input_str[100];
+    int id;
 
-    printf("Currently do not support searching by name...\n");
-    //printf("");
+    memset(input_str, 0, sizeof(input_str));
+
+    printf("Enter a name or an id number: ");
+    scanf("%s", input_str);
+
+    sscanf(input_str, "%d", &id);
+
+    //check for a valid id. otherwise it's a string
+    if(id >= 0 && id < PHONE_BOOK_SIZE && my_phone_book[id].id != -1)
+    {
+        print_entry(id);
+    }
+    else
+    {
+        //invalid id. treat it as a name and search for the entry
+        id = find_id_from_name(input_str);
+        if(id != -1)
+        {
+            print_entry(id);
+        }
+        else
+        {
+            printf("Could not find %s in the phone book.\n", input_str);
+        }
+    }
+}
+
+void print_entry(int id)
+{
+    printf("ID: %d\n", my_phone_book[id].id);
+    printf("Name: %s\n", my_phone_book[id].name);
+    printf("Phone Number: %s\n", my_phone_book[id].phone_num);
+    printf("\n");
+}
+
+int find_id_from_name(char* name)
+{
+    unsigned int i;
+
+    for(i = 0; i < PHONE_BOOK_SIZE; i++)
+    {
+        if(my_phone_book[i].id != -1)
+        {
+            int result;
+
+            //make the name-under-test the same length
+            //as the string provided
+            char name_truncated[32];
+            int new_size = 0;
+            new_size = strlen(name);
+            strncpy(name_truncated, my_phone_book[i].name, new_size);
+
+            result = strncasecmp(name_truncated, name, 32);
+            //strncasecmp ignores case
+            if(result == 0)
+            {
+                return i;
+            }
+        }
+    }
+    return -1;
 }
 
 void handle_cmnd_add(void)

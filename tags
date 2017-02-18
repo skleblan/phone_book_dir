@@ -7,25 +7,30 @@
 ADD	smpl_phone_book.c	/^    ADD,$/;"	e	enum:__anon1	file:
 CONCAT	ct_assert.h	4;"	d
 COUNT	smpl_phone_book.c	/^    COUNT,$/;"	e	enum:__anon1	file:
+FALSE	util.h	5;"	d
 LIST_ALL	smpl_phone_book.c	/^    LIST_ALL,$/;"	e	enum:__anon1	file:
-MAX	util.h	5;"	d
-MIN	util.h	4;"	d
+LOAD	smpl_phone_book.c	/^    LOAD,$/;"	e	enum:__anon1	file:
+MAX	util.h	8;"	d
+MIN	util.h	7;"	d
 NUM_CMND_OPTIONS	smpl_phone_book.c	/^    NUM_CMND_OPTIONS$/;"	e	enum:__anon1	file:
 PHONE_BOOK_SIZE	smpl_phone_book.c	15;"	d	file:
 QUIT	smpl_phone_book.c	/^    QUIT,$/;"	e	enum:__anon1	file:
 REMOVE	smpl_phone_book.c	/^    REMOVE,$/;"	e	enum:__anon1	file:
 REMOVE_ALL	smpl_phone_book.c	/^    REMOVE_ALL,$/;"	e	enum:__anon1	file:
 SAVE	smpl_phone_book.c	/^    SAVE,$/;"	e	enum:__anon1	file:
+TRUE	util.h	4;"	d
 VIEW_ENTRY	smpl_phone_book.c	/^    VIEW_ENTRY,$/;"	e	enum:__anon1	file:
 __CT_ASSERT_H__	ct_assert.h	2;"	d
 __UTIL_H__	util.h	2;"	d
 cmnd_string	smpl_phone_book.c	/^char * cmnd_string[] =$/;"	v
 ct_assert	ct_assert.h	6;"	d
+find_id_from_name	smpl_phone_book.c	/^int find_id_from_name(char* name)$/;"	f
 find_next_open_array_idx	smpl_phone_book.c	/^int find_next_open_array_idx(void)$/;"	f
 handle_cmnd_add	smpl_phone_book.c	/^void handle_cmnd_add(void)$/;"	f
 handle_cmnd_count	smpl_phone_book.c	/^void handle_cmnd_count(void)$/;"	f
 handle_cmnd_list_all	smpl_phone_book.c	/^void handle_cmnd_list_all(void)$/;"	f
 handle_cmnd_rem_all	smpl_phone_book.c	/^void handle_cmnd_rem_all(void)$/;"	f
+handle_cmnd_view_entry	smpl_phone_book.c	/^void handle_cmnd_view_entry(void)$/;"	f
 id	smpl_phone_book.c	/^    int id; \/\/or should i do some sort of hash?$/;"	m	struct:phn_dir_entry	file:
 init_all_vars	smpl_phone_book.c	/^void init_all_vars(void)$/;"	f
 main	smpl_phone_book.c	/^void main()$/;"	f
@@ -35,4 +40,5 @@ num_entries	smpl_phone_book.c	/^unsigned int      num_entries;$/;"	v
 phn_dir_entry	smpl_phone_book.c	/^struct phn_dir_entry$/;"	s	file:
 phn_dir_entry_t	smpl_phone_book.c	/^typedef struct phn_dir_entry phn_dir_entry_t;$/;"	t	typeref:struct:phn_dir_entry	file:
 phone_num	smpl_phone_book.c	/^    char phone_num[10];$/;"	m	struct:phn_dir_entry	file:
-print_menu	smpl_phone_book.c	/^void print_menu( void )$/;"	f
+print_entry	smpl_phone_book.c	/^void print_entry(int id)$/;"	f
+print_menu	smpl_phone_book.c	/^void print_menu( unsigned char b_print_full )$/;"	f
