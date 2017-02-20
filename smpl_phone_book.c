@@ -44,6 +44,7 @@ unsigned int      num_entries;
 
 char * cmnd_string[] =
 {
+    /*"Reprint this option list",*/
     "List All Entries",
     "View an Entry",
     "Add a new Entry",
@@ -72,6 +73,8 @@ void print_entry(int id);
 void main()
 {
     int option;
+    char input_string[100];
+    int input_len;
 
     init_all_vars();
 
@@ -87,13 +90,10 @@ void main()
 
     while( option != QUIT )
     {
-        char input_string[100];
-        int input_len;
-        //scanf("%d", &option);
-        scanf("%s", input_string);
-
+        memset(input_string, 0, 100);
+        fgets(input_string, 100, stdin);
         input_len = strlen(input_string);
-        if(input_len == 0)
+        if(input_len == 0 || input_string[0] == '\n')
         {
             print_menu(TRUE);
             continue;
@@ -283,6 +283,8 @@ int find_id_from_name(char* name)
             //as the string provided
             char name_truncated[32];
             int new_size = 0;
+            memset(name_truncated, 0, 32);
+
             new_size = strlen(name);
             strncpy(name_truncated, my_phone_book[i].name, new_size);
 
