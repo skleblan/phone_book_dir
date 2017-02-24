@@ -69,6 +69,7 @@ void handle_cmnd_view_entry( void );
 int find_id_from_name(char* name);
 int find_next_open_array_idx(void);
 void print_entry(int id);
+void flush_stdin_buffer();
 
 void main()
 {
@@ -91,6 +92,7 @@ void main()
     while( option != QUIT )
     {
         memset(input_string, 0, 100);
+
         fgets(input_string, 100, stdin);
         input_len = strlen(input_string);
         if(input_len == 0 || input_string[0] == '\n')
@@ -139,6 +141,18 @@ void main()
 
         }
         print_menu( FALSE );
+        flush_stdin_buffer();
+    }
+}
+
+void flush_stdin_buffer()
+{
+    char c;
+    c = getchar();
+    //discard all characters up to and including newline
+    while(c != '\n' && c != EOF)
+    {
+        c = getchar();
     }
 }
 
