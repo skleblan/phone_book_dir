@@ -1,0 +1,18 @@
+template
+
+start each entry with line "entry"
+then each field is on a separate line
+the tag name is first
+then a colon
+then the value is second and goes to the end of the line
+
+
+entry
+id:34
+name:jeremy biggens
+phone:5394839
+
+entry
+id:56
+name:julie andrews
+phone:2345693
