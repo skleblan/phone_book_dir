@@ -6,17 +6,14 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ADD	smpl_phone_book.c	/^    ADD,$/;"	e	enum:__anon1	file:
 CONCAT	ct_assert.h	4;"	d
-COUNT	smpl_phone_book.c	/^    COUNT,$/;"	e	enum:__anon1	file:
 FALSE	util.h	5;"	d
 LIST_ALL	smpl_phone_book.c	/^    LIST_ALL,$/;"	e	enum:__anon1	file:
 LOAD	smpl_phone_book.c	/^    LOAD,$/;"	e	enum:__anon1	file:
 MAX	util.h	8;"	d
 MIN	util.h	7;"	d
 NUM_CMND_OPTIONS	smpl_phone_book.c	/^    NUM_CMND_OPTIONS$/;"	e	enum:__anon1	file:
-NUM_CMND_OPTIONS	smpl_phone_book.c	/^ct_assert( sizeof(cmnd_string)\/sizeof(char) == NUM_CMND_OPTIONS );$/;"	v
 PHONE_BOOK_SIZE	smpl_phone_book.c	15;"	d	file:
 QUIT	smpl_phone_book.c	/^    QUIT,$/;"	e	enum:__anon1	file:
-REMOVE	smpl_phone_book.c	/^    REMOVE,$/;"	e	enum:__anon1	file:
 REMOVE_ALL	smpl_phone_book.c	/^    REMOVE_ALL,$/;"	e	enum:__anon1	file:
 SAVE	smpl_phone_book.c	/^    SAVE,$/;"	e	enum:__anon1	file:
 TRUE	util.h	4;"	d
@@ -33,6 +30,7 @@ handle_cmnd_count	smpl_phone_book.c	/^void handle_cmnd_count(void)$/;"	f
 handle_cmnd_list_all	smpl_phone_book.c	/^void handle_cmnd_list_all(void)$/;"	f
 handle_cmnd_rem_all	smpl_phone_book.c	/^void handle_cmnd_rem_all(void)$/;"	f
 handle_cmnd_view_entry	smpl_phone_book.c	/^void handle_cmnd_view_entry(void)$/;"	f
+handle_save_cmnd	smpl_phone_book.c	/^void handle_save_cmnd(void)$/;"	f
 id	smpl_phone_book.c	/^    int id; \/\/or should i do some sort of hash?$/;"	m	struct:phn_dir_entry	file:
 init_all_vars	smpl_phone_book.c	/^void init_all_vars(void)$/;"	f
 main	smpl_phone_book.c	/^void main()$/;"	f

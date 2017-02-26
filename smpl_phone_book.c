@@ -70,6 +70,7 @@ int find_id_from_name(char* name);
 int find_next_open_array_idx(void);
 void print_entry(int id);
 void flush_stdin_buffer();
+void handle_save_cmnd(void);
 
 void main()
 {
@@ -137,6 +138,10 @@ void main()
 
             case VIEW_ENTRY:
                 handle_cmnd_view_entry();
+                break;
+
+            case SAVE:
+                handle_save_cmnd();
                 break;
 
         }
@@ -357,3 +362,41 @@ void handle_cmnd_add(void)
 
     printf("Entry has been added. ID: %d", new_id);
 }
+
+void handle_save_cmnd(void)
+{
+    char data_file_name[] = "save.dat";
+
+    int i;
+
+    FILE* f_out;
+
+    f_out = fopen(data_file_name, "w");
+
+    for(i = 0; i < PHONE_BOOK_SIZE; i++)
+    {
+        if(my_phone_book[i].id == -1)
+        {
+            continue;
+        }
+
+        fprintf(f_out, "entry\n");
+        fprintf(f_out, "id:%d\n", my_phone_book[i].id);
+        fprintf(f_out, "name:%s\n", my_phone_book[i].name);
+        fprintf(f_out, "phone:%s\n", my_phone_book[i].phone_num);
+    }
+
+    fclose(f_out);
+
+    printf("Phone book has been saved to disk\n");
+}
+
+void handle_cmnd_load_entry()
+{
+    char data_file_name[] = "save.dat";
+
+    FILE* f;
+
+    f = fopen(data_file_name, "r");
+
+
