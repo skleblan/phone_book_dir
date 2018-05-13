@@ -4,20 +4,22 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-ADD	smpl_phone_book.c	/^    ADD,$/;"	e	enum:__anon1	file:
+ADD	smpl_phone_book.c	/^    ADD,$/;"	e	enum:__anon2	file:
 CONCAT	ct_assert.h	4;"	d
+COUNT	smpl_phone_book.c	/^    COUNT,$/;"	e	enum:__anon2	file:
 FALSE	util.h	5;"	d
-LIST_ALL	smpl_phone_book.c	/^    LIST_ALL,$/;"	e	enum:__anon1	file:
-LOAD	smpl_phone_book.c	/^    LOAD,$/;"	e	enum:__anon1	file:
+LIST_ALL	smpl_phone_book.c	/^    LIST_ALL,$/;"	e	enum:__anon2	file:
+LOAD	smpl_phone_book.c	/^    LOAD,$/;"	e	enum:__anon2	file:
 MAX	util.h	8;"	d
 MIN	util.h	7;"	d
-NUM_CMND_OPTIONS	smpl_phone_book.c	/^    NUM_CMND_OPTIONS$/;"	e	enum:__anon1	file:
+NUM_CMND_OPTIONS	smpl_phone_book.c	/^    NUM_CMND_OPTIONS$/;"	e	enum:__anon2	file:
 PHONE_BOOK_SIZE	smpl_phone_book.c	15;"	d	file:
-QUIT	smpl_phone_book.c	/^    QUIT,$/;"	e	enum:__anon1	file:
-REMOVE_ALL	smpl_phone_book.c	/^    REMOVE_ALL,$/;"	e	enum:__anon1	file:
-SAVE	smpl_phone_book.c	/^    SAVE,$/;"	e	enum:__anon1	file:
+QUIT	smpl_phone_book.c	/^    QUIT,$/;"	e	enum:__anon2	file:
+REMOVE	smpl_phone_book.c	/^    REMOVE,$/;"	e	enum:__anon2	file:
+REMOVE_ALL	smpl_phone_book.c	/^    REMOVE_ALL,$/;"	e	enum:__anon2	file:
+SAVE	smpl_phone_book.c	/^    SAVE,$/;"	e	enum:__anon2	file:
 TRUE	util.h	4;"	d
-VIEW_ENTRY	smpl_phone_book.c	/^    VIEW_ENTRY,$/;"	e	enum:__anon1	file:
+VIEW_ENTRY	smpl_phone_book.c	/^    VIEW_ENTRY,$/;"	e	enum:__anon2	file:
 __CT_ASSERT_H__	ct_assert.h	2;"	d
 __UTIL_H__	util.h	2;"	d
 cmnd_string	smpl_phone_book.c	/^char * cmnd_string[] =$/;"	v
@@ -28,6 +30,7 @@ flush_stdin_buffer	smpl_phone_book.c	/^void flush_stdin_buffer()$/;"	f
 handle_cmnd_add	smpl_phone_book.c	/^void handle_cmnd_add(void)$/;"	f
 handle_cmnd_count	smpl_phone_book.c	/^void handle_cmnd_count(void)$/;"	f
 handle_cmnd_list_all	smpl_phone_book.c	/^void handle_cmnd_list_all(void)$/;"	f
+handle_cmnd_load_entry	smpl_phone_book.c	/^void handle_cmnd_load_entry()$/;"	f
 handle_cmnd_rem_all	smpl_phone_book.c	/^void handle_cmnd_rem_all(void)$/;"	f
 handle_cmnd_view_entry	smpl_phone_book.c	/^void handle_cmnd_view_entry(void)$/;"	f
 handle_save_cmnd	smpl_phone_book.c	/^void handle_save_cmnd(void)$/;"	f
